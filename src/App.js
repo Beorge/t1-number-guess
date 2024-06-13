@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getRandomInt } from "./utils";
 import { HINT_NAMES } from "./constants";
 
-// В этой задаче вам нужно создать компонент React, который генерирует случайное число между 1 и 100.
+// В этой задаче вам нужно создать компонент React, который генерирует случайное число между 1 и 10.
 // - Компонент должен позволять пользователю делать предположения о числе.
 // - Компонент должен отображать количество попыток пользователя.
 // - Компонент должен вывести подтверждение удачного угадывания.
@@ -12,6 +12,12 @@ import { HINT_NAMES } from "./constants";
 //   для подсказки использовать HINT_NAMES
 
 function App() {
+  const [number, setNumber] = useState(null);
+  const [attempts, setAttempts] = useState(0);
+  const [guess, setGuess] = useState(null);
+  const [results, setResults] = useState([]);
+  const [value, setValue] = useState(0);
+
   const handleGuess = () => {};
 
   const handleReset = () => {};
