@@ -7,7 +7,7 @@ import { useState } from "react";
 // - Компонент должен отображать сообщение, указывающее, является ли предположение пользователя выше или ниже, чем актуальное число.
 // - Компонент должен отображать список чисел введенных при попытках угадать число
 
-function App() {
+export function Task() {
   const initRandom = () => getRandomInt(1, 100)
   const [randomv,setRandomv] = useState(initRandom)
   const [inputV, setInputV] = useState(0)
@@ -15,6 +15,7 @@ function App() {
   const [list, setList] = useState([])
   return (
     <div>
+      {randomv}
       <h1>Guess the Number!</h1>
       <input type="number" value={inputV} onChange={(e)=>setInputV(Number(e.target.value))}/>
       {/* подсказка */}
@@ -27,13 +28,7 @@ function App() {
         setList([...list, inputV])
       }}>Guess!</button>
       {msg}
-      <button onClick={()=>{
-        setMsg(''); 
-        setInputV(0)
-        setList([])
-        setRandomv(initRandom)
-      }}>Reset</button>
-      {/* число попыток */}
+
       <p>Attempts: </p>
       {/* список попыток */}
       <ul>{list.map(child=><li>{child}</li>)}</ul>
@@ -41,4 +36,3 @@ function App() {
   );
 }
 
-export default App;
